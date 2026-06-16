@@ -1,10 +1,10 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
-import * as campaigns from "./tools/campaigns.js";
-import * as leads from "./tools/leads.js";
-import * as emails from "./tools/emails.js";
-import * as analytics from "./tools/analytics.js";
+import * as campaigns from "./tools/campaigns.ts";
+import * as leads from "./tools/leads.ts";
+import * as emails from "./tools/emails.ts";
+import * as analytics from "./tools/analytics.ts";
 
 // 🏗️ MCP Server Initialization
 const server = new McpServer(
