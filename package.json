@@ -5,20 +5,14 @@
   "description": "MCP Server for SmartLead CRM integration",
   "main": "server/index.js",
   "scripts": {
-    "start": "ts-node server/index.js",
+    "start": "node server/index.js",
     "test": "node test-connection.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
     "zod": "^3.24.0"
   },
-  "devDependencies": {
-    "typescript": "^5.0.0",
-    "@types/node": "^20.0.0",
-    "ts-node": "^10.9.0"
-  },
   "engines": {
     "node": ">=18.0.0"
   }
-}
 }

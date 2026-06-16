@@ -1,0 +1,88 @@
+{
+  "manifest_version": "0.3",
+  "name": "smartlead-mcp-v3",
+  "display_name": "SmartLead CRM",
+  "version": "2.0.0",
+  "description": "MCP Server for SmartLead CRM integration with 39+ tools for campaign management, lead tracking, email accounts, and analytics.",
+  "long_description": "Complete SmartLead CRM integration for Claude. Manage email campaigns, track prospects, configure sending accounts, and analyze performance — all through natural language. Includes 39 tools across campaigns, leads, email accounts, and analytics.",
+  "author": {
+    "name": "Alex Genovese",
+    "url": "https://alexgenovese.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexgenovese/mcp-smartlead-claude-cowork"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.js"],
+      "env": {
+        "SMARTLEAD_API_KEY": "${user_config.api_key}"
+      }
+    }
+  },
+  "tools": [
+    { "name": "smartlead_create_campaign", "description": "Create a new email campaign with sequences and settings" },
+    { "name": "smartlead_list_campaigns", "description": "List all campaigns with filtering and pagination" },
+    { "name": "smartlead_get_campaign_by_id", "description": "Get specific campaign details and configuration" },
+    { "name": "smartlead_update_campaign_settings", "description": "Modify campaign configuration and parameters" },
+    { "name": "smartlead_get_campaigns_with_analytics", "description": "Get campaigns with performance data included" },
+    { "name": "smartlead_delete_campaign", "description": "Remove campaigns from your account" },
+    { "name": "smartlead_pause_campaign", "description": "Pause active campaigns temporarily" },
+    { "name": "smartlead_resume_campaign", "description": "Resume paused campaigns" },
+    { "name": "smartlead_update_campaign_schedule", "description": "Modify sending schedules and timing" },
+    { "name": "smartlead_clone_campaign", "description": "Duplicate successful campaigns" },
+    { "name": "smartlead_update_campaign_sequences", "description": "Modify email sequences and content" },
+    { "name": "smartlead_set_campaign_limits", "description": "Configure daily sending limits" },
+    { "name": "smartlead_update_campaign_tracking", "description": "Enable/disable open and click tracking" },
+    { "name": "smartlead_schedule_campaign", "description": "Set up advanced campaign scheduling" },
+    { "name": "smartlead_add_leads_to_campaign", "description": "Import prospects to campaigns (bulk CSV)" },
+    { "name": "smartlead_list_leads_by_campaign", "description": "Get all prospects in a specific campaign" },
+    { "name": "smartlead_fetch_lead_by_email", "description": "Find specific prospect by email address" },
+    { "name": "smartlead_get_lead_details", "description": "Fetch detailed prospect information and history" },
+    { "name": "smartlead_import_leads_from_csv", "description": "Bulk import prospects from CSV files" },
+    { "name": "smartlead_export_leads_data", "description": "Export prospect data in various formats" },
+    { "name": "smartlead_create_email_account", "description": "Add new sending email accounts" },
+    { "name": "smartlead_fetch_all_email_accounts", "description": "List all configured email accounts" },
+    { "name": "smartlead_update_email_account", "description": "Modify account settings and configuration" },
+    { "name": "smartlead_delete_email_account", "description": "Remove email accounts from your setup" },
+    { "name": "smartlead_test_email_account", "description": "Verify account connectivity and authentication" },
+    { "name": "smartlead_add_update_warmup_to_email", "description": "Configure warmup settings for accounts" },
+    { "name": "smartlead_get_warmup_status", "description": "Check current warmup progress and status" },
+    { "name": "smartlead_pause_warmup", "description": "Temporarily pause warmup process" },
+    { "name": "smartlead_resume_warmup", "description": "Resume paused warmup process" },
+    { "name": "smartlead_get_analytics_campaign_list", "description": "List campaigns with analytics data" },
+    { "name": "smartlead_get_analytics_overall_stats_v2", "description": "Overall performance statistics" },
+    { "name": "smartlead_get_analytics_day_wise_overall_stats", "description": "Daily performance breakdown" },
+    { "name": "smartlead_get_campaign_performance_summary", "description": "Campaign-specific performance metrics" },
+    { "name": "smartlead_get_sequence_performance_analytics", "description": "Email sequence analysis" },
+    { "name": "smartlead_get_campaign_conversion_funnel", "description": "Conversion tracking and analysis" },
+    { "name": "smartlead_fetch_campaign_statistics", "description": "Comprehensive campaign performance stats" },
+    { "name": "smartlead_get_campaign_sending_stats", "description": "Sending volume and timing statistics" },
+    { "name": "smartlead_get_campaign_response_rates", "description": "Response and engagement rate analysis" },
+    { "name": "smartlead_get_campaign_bounce_analysis", "description": "Bounce rate analysis and trends" },
+    { "name": "smartlead_get_campaign_unsubscribe_stats", "description": "Unsubscribe tracking and analysis" }
+  ],
+  "tools_generated": true,
+  "keywords": ["smartlead", "crm", "email", "campaigns", "leads", "analytics", "marketing"],
+  "license": "Apache-2.0",
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "SmartLead API Key",
+      "description": "Your SmartLead API key for authentication",
+      "sensitive": true,
+      "required": true
+    }
+  },
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  }
+}

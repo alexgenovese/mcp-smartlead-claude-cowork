@@ -144,6 +144,19 @@ Durante la creazione del bundle, i seguenti file sono automaticamente esclusi:
 - Per modificare il nome del bundle, modifica `SCRIPT_NAME` nella sezione directory variables
 - Per aggiungere script di build personalizzati, modifica la sezione compilation step
 
+### ⚠️ Bundle Size — Critical
+
+Dopo `mcpb pack`, il bundle è ~7 MB. Claude Desktop NON mostra la modale di review se il bundle supera ~3 MB — il dialog `showInstallDxtDialog` va in timeout dopo ~50 secondi senza feedback.
+
+**Sempre eseguire `mcpb clean` dopo `mcpb pack`:**
+
+```bash
+mcpb pack                    # ~7 MB
+mcpb clean smartlead-crm.mcpb  # ~2.8 MB
+```
+
+`mcpb clean` rimuove le dipendenze di sviluppo (`devDependencies`) dal `node_modules/` e minimizza la dimensione. Senza questo passaggio, il bundle non mostra la modale di installazione e sembra non funzionare.
+
 ### Esempio di Output
 
 ```

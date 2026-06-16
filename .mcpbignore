@@ -1,0 +1,9 @@
+.git/
+*.md
+*.sh
+*.log
+.DS_Store
+schemas/
+create-bundle.sh
+bundle-metadata.json
+build-output/
